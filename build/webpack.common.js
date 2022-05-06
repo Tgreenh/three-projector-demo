@@ -57,10 +57,7 @@ export default {
         test: /\.(jpg|png|gif|svg)$/,
         use: [
           {
-            loader: 'file-loader',
-            options: {
-              outputPath: 'assets/images/'
-            }
+            loader: 'file-loader'
           }
         ]
       },
@@ -70,14 +67,21 @@ export default {
         test: /\.(ttf|eot|woff|woff2)$/,
         use: [
           {
-            loader: 'file-loader',
-            options:
-            {
-              outputPath: 'assets/fonts/'
-            }
+            loader: 'file-loader'
           }
         ]
-      }
+      },
+
+      // GLTF
+      {
+        test: /\.(glb)$/,
+        use: [
+          {
+            loader: 'file-loader'
+          }
+        ]
+      },
+
     ]
   }
 }

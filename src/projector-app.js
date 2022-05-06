@@ -15,6 +15,9 @@ import { Projector } from './projector.js';
 
 import ProjectLightsFragmentBegin from './shaders/projector-lights-fragment-begin.glsl.js'
 
+import trianglesImageSrc from '../static/triangles.jpg'
+import skyscraperMeshSrc from '../static/skyscraper.glb'
+
 export class ProjectorApp {
   _viewer;
 
@@ -29,7 +32,7 @@ export class ProjectorApp {
 
     this._projectorMaterials = [];
 
-    this.initProjector('../static/triangles.jpg');
+    this.initProjector(trianglesImageSrc);
     this.initScene();
 
     this.initGui();
@@ -88,7 +91,7 @@ export class ProjectorApp {
     // Mesh
 
     const loader = new GLTFLoader();
-    loader.load('../static/skyscraper.glb', (gltf) => {
+    loader.load(skyscraperMeshSrc, (gltf) => {
       const meshMaterial  = this.createProjectorMaterial(0xcccccc);
 
       meshMaterial.map = gltf.scene.children[0].material.map;
